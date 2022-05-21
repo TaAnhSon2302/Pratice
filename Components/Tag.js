@@ -3,11 +3,11 @@ import { StyleSheet, Text,TouchableOpacity,Dimensions,Alert,View } from 'react-n
 import Ionicons  from 'react-native-vector-icons/Ionicons';
 
 
- const Tag = ({icon,long,text}) => {
+ const Tag = ({icon,long,name}) => {
      return (
          <TouchableOpacity style={[styles.tag,{width:long}]}>
              {icon}
-             <Text style={styles.text}>{text}</Text>
+             <Text style={styles.text}>{name}</Text>
          </TouchableOpacity>
      )
  }

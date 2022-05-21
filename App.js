@@ -1,63 +1,82 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, SafeAreaView,Alert,ScrollView } from 'react-native';
-import ButtonCustom from './Components/ButtonCustom';
-import CardSound from './Components/CardSound';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import Feather from 'react-native-vector-icons/Feather'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import Ionicons  from 'react-native-vector-icons/Ionicons';
-import Tag from './Components/Tag';
-export default function App() {
+import AlbumSrceen from './Screens/albumsreen/index'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import Composer from './Screens/Composerscreen';
+import FontAwsome5 from  'react-native-vector-icons/FontAwesome5'
+import FontAwsome from 'react-native-vector-icons/FontAwesome'
+import Entypo from 'react-native-vector-icons/Entypo'
+function HomeScreen1() {
   return (
-    <SafeAreaView  style={styles.launchscreen}>
-      <View>
-      <ButtonCustom text={"Next"} onPress={()=>Alert.alert("Next")}/>
-      </View>
-      <View>
-      <ButtonCustom text={"Start"}/>
-      </View>
-      <View>
-      <ButtonCustom text={"Back"}/>
-      </View>
-     
-     <View style={{flexDirection: "row" ,flexWrap:"nowrap", marginLeft:16, marginBottom:20}}>
-         <View style={{marginLeft:16,width:66}}>
-           <Tag icon={<Ionicons name="keypad" size={20} color="#FFF"/>} text={"All"}/>
-         </View>
-         <View style={{marginLeft:16,width:111}}>
-           <Tag icon={<MaterialCommunityIcons name="human-handsup" size={20} color="#FFF"/>} text={"Ambient"}/>
-         </View>
-         <View style={{marginLeft:16,width:107}}>
-           <Tag icon={<FontAwesome name="child" size={20} color="#FFF"/>} text={"For Kids"}/>
-         </View>
-       </View>
-     <ScrollView horizontal={true} style={{marginLeft:16,flexDirection:"row",flexWrap:"nowrap"}}>
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Female"} backgroundColor={"#4870FF"} icon={<FontAwesome name="female" size={30} color="#FFF"/>} />
-       </View>
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Rain"} backgroundColor={"#00D971"} icon={<Feather name="cloud-rain"  size={30} color="#FFF"/>}/>
-       </View>
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Bird"} backgroundColor={"#FF9C41"} icon={<FontAwesome5 name="kiwi-bird" size={30} color="#FFF"/>}/>
-       </View>
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Female"} backgroundColor={"#4870FF"} />
-       </View >
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Female"} backgroundColor={"#4870FF"} />
-       </View >
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Female"} backgroundColor={"#4870FF"} />
-       </View >
-       <View style={{marginLeft:16}}>
-       <CardSound text={"Female"} backgroundColor={"#4870FF"} />
-       </View >
-     </ScrollView>
-       
-    </SafeAreaView>
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Home!</Text>
+    </View>
+  );
+}
+
+function SettingsScreen() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+const Tab = createBottomTabNavigator();
+export default function App() {
+return (
+    <NavigationContainer>
+    <Tab.Navigator screenOptions={{
+      tabBarStyle:{
+           backgroundColor:"#21283F",
+           positon: 'relative',
+           bottom: 0,
+           marginHorizontal: 0,
+           height: 60,
+           borderTopWidth: 0,
+      },
+    }}>
+      <Tab.Screen name="Discover" component={AlbumSrceen} options={{
+         headerShown: false,
+         tabBarIcon: ({focused}) =>(
+           <View>
+             <FontAwsome5 name='cloud-moon' 
+             size={20} 
+             color ={focused ? "#4870FF": "#8E8E93" }>
+               
+             </FontAwsome5>
+           </View>
+         ),
+      }} >
+
+      </Tab.Screen>
+      <Tab.Screen name="Composer" component={Composer} options={{
+         headerShown: false,
+         tabBarIcon: ({focused}) =>(
+           <View>
+             <Entypo name='beamed-note' 
+             size={20} 
+             color ={focused ? "#4870FF": "#8E8E93"}>
+               
+             </Entypo>
+           </View>
+         ),
+      }} ></Tab.Screen>
+      <Tab.Screen name="Profile" component={SettingsScreen} options={{
+         headerShown: false,
+         tabBarIcon: ({focused}) =>(
+           <View>
+             <FontAwsome5 name='user' 
+             size={20} 
+             color ={focused ? "#4870FF": "#8E8E93"}>
+               
+             </FontAwsome5>
+           </View>
+         ),
+      }}/>
+    </Tab.Navigator>
+  </NavigationContainer>
   );
 }
 
@@ -65,7 +84,6 @@ const styles = StyleSheet.create({
   launchscreen: {
     flex: 1,
     backgroundColor: '#141927',
-    paddingTop: 80,
     // paddingLeft: 89,
     // alignItems: 'center',
     // justifyContent: 'center',

@@ -17,7 +17,7 @@ export default CardSound
 const styles=StyleSheet.create({
    card: {
        width:100,
-       height:123,
+       height:130,
        marginBottom: 20,
    },
    iconbox: {
@@ -38,5 +38,8 @@ const styles=StyleSheet.create({
    },
    text:{
        color: '#FFF',
+       fontSize:10,
+       fontWeight: '500',
+       lineHeight:12,
    },
 })
