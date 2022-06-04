@@ -6,8 +6,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import Composer from './Screens/Composerscreen';
 import FontAwsome5 from  'react-native-vector-icons/FontAwesome5'
-import FontAwsome from 'react-native-vector-icons/FontAwesome'
+import ProfileScreen from './Screens/Profilescreen';
 import Entypo from 'react-native-vector-icons/Entypo'
+import AlbumDetail from './Screens/Albumdetail';
 function HomeScreen1() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -63,7 +64,19 @@ return (
            </View>
          ),
       }} ></Tab.Screen>
-      <Tab.Screen name="Profile" component={SettingsScreen} options={{
+      <Tab.Screen name="Profile" component={ProfileScreen} options={{
+         headerShown: false,
+         tabBarIcon: ({focused}) =>(
+           <View>
+             <FontAwsome5 name='user' 
+             size={20} 
+             color ={focused ? "#4870FF": "#8E8E93"}>
+               
+             </FontAwsome5>
+           </View>
+         ),
+      }}/>
+        <Tab.Screen name="Album" component={AlbumDetail} options={{
          headerShown: false,
          tabBarIcon: ({focused}) =>(
            <View>

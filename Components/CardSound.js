@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet,View, Text,TouchableOpacity,Dimensions,Alert } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 const CardSound = ({text,icon,backgroundColor}) =>{
     return (
         <View style={styles.card}>

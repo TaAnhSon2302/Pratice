@@ -7,6 +7,20 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const Composer = () => {
+  const dataChild =[
+    {
+      text: "Female voice",
+      backgroundColor: "#21283F",
+    },
+    {
+      text: "Female voice",
+      backgroundColor: "#4870FF",
+    },
+    {
+      text: "Female voice",
+      backgroundColor: "#21283F",
+    }
+  ]
   return (
   <SafeAreaView style={styles.containermain}>
     <ScrollView>
@@ -22,8 +36,17 @@ const Composer = () => {
             <View style={{marginBottom:14}}>
               <Text style={styles.detail}>Quickly stabilize your baby's emotions</Text>
             </View>
-            <ScrollView >
-                  <View >
+            <ScrollView>
+              <View  style={{flexWrap:'nowrap', flexDirection:'row'}}>
+                {dataChild.map((element,index) =>{
+                  return (
+                    <View key={index} style={{marginRight:16}}>
+                          <CardSound text={element.text} backgroundColor={element.backgroundColor} icon={element.icon}/>
+                    </View>
+                  )
+                })}
+              </View>
+                  {/* <View >
                     <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
                       <View>
                         <CardSound text={'Female voice'} icon={<FontAwsome5 name='child' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
@@ -35,7 +58,7 @@ const Composer = () => {
                         <CardSound text={'Lullaby'} icon={<Ionicons name='moon-sharp' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
                       </View>
                     </View>
-                  </View>
+                  </View> */}
             </ScrollView>
             <View>
               <Text style={styles.category}>Nature</Text>
@@ -44,7 +67,7 @@ const Composer = () => {
               <Text style={styles.detail}>It will allow you to merge with nature</Text>
             </View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                  <View >
+                  {/* <View >
                     <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
                       <View>
                         <CardSound text={'Rain'} icon={<FontAwsome5 name='cloud-moon-rain' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
@@ -59,7 +82,7 @@ const Composer = () => {
                         <CardSound text={'Female voice'} icon={<Ionicons name='moon-sharp' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
                       </View>
                     </View>
-                  </View>
+                  </View> */}
             </ScrollView>
 
 
@@ -71,7 +94,7 @@ const Composer = () => {
             </View>
             <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
             
-                  <View >
+                  {/* <View >
                     <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
                       <View>
                         <CardSound text={'Bird'} icon={<FontAwsome5 name='kiwi-bird' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
@@ -83,7 +106,7 @@ const Composer = () => {
                         <CardSound text={'Frog'} icon={<FontAwsome5 name='frog' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
                       </View>
                     </View>
-                  </View>
+                  </View> */}
             </ScrollView>
 
 
@@ -96,7 +119,7 @@ const Composer = () => {
               <Text style={styles.detail}>It will allow you to merge with nature</Text>
             </View>
                   <View >
-                    <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
+                    {/* <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
                       <View>
                         <CardSound text={'Bird'} icon={<FontAwsome5 name='kiwi-bird' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
                       </View>
@@ -106,7 +129,7 @@ const Composer = () => {
                       <View style={{marginLeft:16}}>
                         <CardSound text={'Frog'} icon={<FontAwsome5 name='frog' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
                       </View>
-                    </View>
+                    </View> */}
                   </View>
             </ScrollView>
       </View>
