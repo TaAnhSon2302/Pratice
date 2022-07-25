@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, SafeAreaView,ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, SafeAreaView,ScrollView ,TouchableOpacity} from 'react-native'
+import React,{useState} from 'react'
 import CardSound from '../../Components/CardSound'
 import FontAwsome5 from 'react-native-vector-icons/FontAwesome5'
 import FontAwsome from 'react-native-vector-icons/FontAwesome'
@@ -7,19 +7,57 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const Composer = () => {
-  const dataChild =[
+  const [option,setOption] = useState(["Female","Rain","Cats"])
+  const data =[
     {
-      text: "Female voice",
-      backgroundColor: "#21283F",
+     title:"Child",
+     discription:`Quickly stabilize your baby's emotions`,
+     backgroundColor: "#4870FF",
+     listOptions: [
+      {
+        text: "Female",
+        icon: <FontAwsome5 name='female' color="#FFF" size={30} />
+      },
+      {
+        text: "White noise",
+        icon: <Entypo name='sound' color="#FFF" size={30} />
+      },
+     ],
     },
     {
-      text: "Female voice",
-      backgroundColor: "#4870FF",
-    },
-    {
-      text: "Female voice",
-      backgroundColor: "#21283F",
-    }
+      title:"Nature",
+      discription:`Quickly stabilize your baby's emotions`,
+      backgroundColor: "#00D971",
+      listOptions: [
+       {
+         text: "Rain",
+         icon: <FontAwsome5 name='cloud' color="#FFF" size={30} />
+       },
+       {
+         text: "Forest",
+         icon: <FontAwsome5 name='tree' color="#FFF" size={30} />
+       },
+      ] 
+     },
+     {
+      title:"Animals",
+      discription:`Animal voices will improve your sleep`,
+      backgroundColor: "#FF9C41",
+      listOptions: [
+       {
+         text: "Birds",
+         icon: <FontAwsome5 name='kiwi-bird' color="#FFF" size={30} />
+       },
+       {
+         text: "Cats",
+         icon: <FontAwsome5 name='cat' color="#FFF" size={30} />
+       },
+       {
+        text: "Frogs",
+        icon: <FontAwsome5 name='frog' color="#FFF" size={30} />
+      },
+      ] 
+     },
   ]
   return (
   <SafeAreaView style={styles.containermain}>
@@ -30,109 +68,36 @@ const Composer = () => {
                 <Text style={styles.title}>Sleep</Text>
                 </View>
             </View>
+            {
+              data.map((e,i) =>{
+                 return ( <View key={i}>
             <View>
-              <Text style={styles.category}>Child</Text>
+              <Text style={styles.category}>{e.title}</Text>
             </View>
             <View style={{marginBottom:14}}>
-              <Text style={styles.detail}>Quickly stabilize your baby's emotions</Text>
+              <Text style={styles.detail}>{e.discription}</Text>
             </View>
             <ScrollView>
-              <View  style={{flexWrap:'nowrap', flexDirection:'row'}}>
-                {dataChild.map((element,index) =>{
+            <View  style={{flexWrap:'nowrap', flexDirection:'row'}}>
+                {e.listOptions.map((element,index) =>{
                   return (
+                    <TouchableOpacity onPress ={() =>
+                    setOption({
+                      ...option,
+                    })}>
                     <View key={index} style={{marginRight:16}}>
-                          <CardSound text={element.text} backgroundColor={element.backgroundColor} icon={element.icon}/>
+                          <CardSound text={element.text} backgroundColor={option[i] === element.text ? e.backgroundColor: "#21283F"} icon={element.icon}/>
                     </View>
+                    </TouchableOpacity>
                   )
                 })}
               </View>
-                  {/* <View >
-                    <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
-                      <View>
-                        <CardSound text={'Female voice'} icon={<FontAwsome5 name='child' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'White noise'} icon={<Entypo name='sound' color="#FFF" size={30} />} backgroundColor={"#4870FF"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Lullaby'} icon={<Ionicons name='moon-sharp' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                    </View>
-                  </View> */}
-            </ScrollView>
-            <View>
-              <Text style={styles.category}>Nature</Text>
-            </View>
-            <View style={{marginBottom:14}}>
-              <Text style={styles.detail}>It will allow you to merge with nature</Text>
-            </View>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                  {/* <View >
-                    <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
-                      <View>
-                        <CardSound text={'Rain'} icon={<FontAwsome5 name='cloud-moon-rain' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Forest'} icon={<FontAwsome name='tree' color="#FFF" size={30} />} backgroundColor={"#4870FF"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Waves'} icon={<MaterialIcons name='waves' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Female voice'} icon={<Ionicons name='moon-sharp' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                    </View>
-                  </View> */}
-            </ScrollView>
+              </ScrollView>
+                </View>
+              )})
 
-
-            <View>
-              <Text style={styles.category}>Animals</Text>
-            </View>
-            <View style={{marginBottom:14}}>
-              <Text style={styles.detail}>Animal voices will improve your sleep</Text>
-            </View>
-            <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
-            
-                  {/* <View >
-                    <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
-                      <View>
-                        <CardSound text={'Bird'} icon={<FontAwsome5 name='kiwi-bird' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Cat'} icon={<FontAwsome5 name='cat' color="#FFF" size={30} />} backgroundColor={"#4870FF"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Frog'} icon={<FontAwsome5 name='frog' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                    </View>
-                  </View> */}
-            </ScrollView>
-
-
-
-            <ScrollView horizontal={false} showsHorizontalScrollIndicator={false}>
-            <View>
-              <Text style={styles.category}>Nature</Text>
-            </View>
-            <View style={{marginBottom:14}}>
-              <Text style={styles.detail}>It will allow you to merge with nature</Text>
-            </View>
-                  <View >
-                    {/* <View style={{flexWrap:'nowrap', flexDirection:'row'}}>
-                      <View>
-                        <CardSound text={'Bird'} icon={<FontAwsome5 name='kiwi-bird' color="#FFF" size={30} />} backgroundColor={"#00D971"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Cat'} icon={<FontAwsome5 name='cat' color="#FFF" size={30} />} backgroundColor={"#4870FF"}/>
-                      </View>
-                      <View style={{marginLeft:16}}>
-                        <CardSound text={'Frog'} icon={<FontAwsome5 name='frog' color="#FFF" size={30} />} backgroundColor={"#21283F"}/>
-                      </View>
-                    </View> */}
-                  </View>
-            </ScrollView>
-      </View>
+            }
+        </View>    
       </ScrollView>
   </SafeAreaView>
   )
