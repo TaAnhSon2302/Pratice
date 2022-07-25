@@ -4,6 +4,40 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Entypo from "react-native-vector-icons/Entypo"
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 const AlbumDetail = () => {
+    const data =[
+        {
+           title:"Guitar Camp",
+           songNumber:"7 Songs",
+           type:"instrumental",
+           discription:"An acoustic mix has been specially selected for you. The camping atmosphere will help you improve your sleep and your body as a whole. Your dreams will be delightful and vivid.",
+           textColor: 'rgba(235, 235, 245, 0.6)',
+           songList: [
+            {
+                number: '01',
+                songName:'The Guitar',
+                icon: <Entypo name='controller-play' size={20} color='#FFF'/>,
+                borderBottomWidth: 2,
+            },
+            {
+                number: '02',
+                songName:'The Guitar',
+                icon: <FontAwesome name='pause' size={20} color='#FFF'/>,
+                borderBottomWidth: 2,
+            },
+            {
+                number: '03',
+                songName:'The Guitar',
+                icon: <Entypo name='lock' size={20} color='#FFF'/>,
+                borderBottomWidth: 2,
+            },
+            {
+                number: '04',
+                songName:'The Guitar',
+                icon: <Entypo name='lock' size={20} color='#FFF'/>,
+            },
+           ]
+        },
+    ]
   return (
     <SafeAreaView style={styles.maincontainer}>
         <View>
@@ -13,15 +47,17 @@ const AlbumDetail = () => {
         </TouchableOpacity>
         </View>
 
-
-        <View style={styles.detailbox}>
-            <View style={{marginHorizontal:16,marginTop:24}}>
-                <Text style={{fontWeight:'700',fontSize:34, lineHeight:41, color:"#FFF"}}>Guitar Camp</Text>
+        {
+             data.map((e,i) =>{
+                return (
+                  <View key={i} style={styles.detailbox}>
+                     <View style={{marginHorizontal:16,marginTop:24}}>
+                <Text style={{fontWeight:'700',fontSize:34, lineHeight:41, color:"#FFF"}}>{e.title}</Text>
             </View>
             <View style={{flexDirection:'row',marginHorizontal:16,alignItems:'center',marginBottom:26}}>
-                <Text style={{color:' rgba(235, 235, 245, 0.6)',fontSize:15,fontWeight:'400',lineHeight:20}}>7 Songs</Text>
-                <Entypo name="dot-single" color={'rgba(235, 235, 245, 0.6)'} size={15}></Entypo>
-                <Text style={{color:' rgba(235, 235, 245, 0.6)',fontSize:15,fontWeight:'400',lineHeight:20}}>Instrumental</Text>
+                <Text style={{color:e.textcolor,fontSize:15,fontWeight:'400',lineHeight:20}}>{e.songnumber}</Text>
+                <Entypo name="dot-single" color={e.textcolor} size={15}></Entypo>
+                <Text style={{color:e.textcolor,fontSize:15,fontWeight:'400',lineHeight:20}}>{e.type}</Text>
             </View>
             <View style={styles.choosebox}>
                 <TouchableOpacity style={styles.button1}>
@@ -33,70 +69,43 @@ const AlbumDetail = () => {
                     <Text style={{fontWeight:'600',fontSize:17,lineHeight:22,color:"#FF9C41",marginLeft:5.8}}>Unfavorite</Text>
                 </TouchableOpacity>
             </View>
-           <ScrollView>
-               <View style={{marginHorizontal:16,marginBottom:16}}>
+            <ScrollView>
+            <View style={{marginHorizontal:16,marginBottom:16}}>
            <View>
                 <Text style={{color:'#FFFF',fontWeight:'700',fontSize:17,lineHeight:22}}>About this pack</Text>
            </View>
            <View style={{width: Dimensions.get("window").width, marginBottom:16}}>
                 <Text style={{color:'rgba(235, 235, 245, 0.6)',fontWeight:'400',fontSize:17,lineHeight:22}}>
-                An acoustic mix has been specially selected for you. The camping atmosphere will help you improve your sleep and your body as a whole. Your dreams will be delightful and vivid.
+                {e.discription}
                 </Text>
             </View> 
               </View>
-            <View style={{marginHorizontal: Dimensions.get("window").width-395,height:269,backgroundColor:'#21283F',borderRadius:16}}>
-                   <View style={{marginTop:22,marginHorizontal:16,marginBottom:4}}>
+              <View style={{marginHorizontal: Dimensions.get("window").width-395,height:269,backgroundColor:'#21283F',borderRadius:16}}>
+              <View style={{marginTop:22,marginHorizontal:16,marginBottom:4}}>
                        <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>LIST OF SONGS</Text>
                    </View>
-                   <View style={{width:380,height:56,alignItems:'center',flexDirection:'row',borderBottomWidth:2,borderBottomColor:'#2D344B'}}>
-                       <View style={{marginHorizontal:16}}>
-                           <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>01</Text>
+                {
+                    e.songList.map((element,index) =>{
+                        return (
+                        <View style={{width:380,height:56,alignItems:'center',flexDirection:'row',borderBottomWidth:element.borderBottomWidth,borderBottomColor:'#2D344B'}}>
+                                 <View style={{marginHorizontal:16}}>
+                           <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>{element.number}</Text>
                        </View>
                        <View style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
-                           <Entypo name='lock' size={20} color='#FFF'/>
+                           {element.icon}
                        </View>
                        <View style={{marginLeft:16}}>
-                       <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>The Guitars</Text>
-                   </View>
-                   </View>
-                   <View style={{width:380,height:56,alignItems:'center',flexDirection:'row',borderBottomWidth:2,borderBottomColor:'#2D344B'}}>
-                       <View style={{marginHorizontal:16}}>
-                           <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>01</Text>
-                       </View>
-                       <View style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
-                           <Entypo name='lock' size={20} color='#FFF'/>
-                       </View>
-                       <View style={{marginLeft:16}}>
-                       <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>The Guitars</Text>
-                   </View>
-                   </View>
-                   <View style={{width:380,height:56,alignItems:'center',flexDirection:'row',borderBottomWidth:2,borderBottomColor:'#2D344B'}}>
-                       <View style={{marginHorizontal:16}}>
-                           <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>01</Text>
-                       </View>
-                       <View style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
-                           <Entypo name='lock' size={20} color='#FFF'/>
-                       </View>
-                       <View style={{marginLeft:16}}>
-                       <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>The Guitars</Text>
-                   </View>
-                   </View>
-                   <View style={{width:380,height:56,alignItems:'center',flexDirection:'row'}}>
-                       <View style={{marginHorizontal:16}}>
-                           <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>01</Text>
-                       </View>
-                       <View style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
-                           <Entypo name='lock' size={20} color='#FFF'/>
-                       </View>
-                       <View style={{marginLeft:16}}>
-                       <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>The Guitars</Text>
-                   </View>
-                   </View>
-
-                </View>
-           </ScrollView>
-        </View>
-            
+                       <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>{element.songName}</Text>
+                      </View>
+                             </View>
+                    )})
+                }
+            </View>
+            </ScrollView>
+                  </View>    
+                )
+             })
+        }   
     </SafeAreaView>
   )
 }

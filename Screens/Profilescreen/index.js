@@ -2,10 +2,59 @@ import { StyleSheet, Text, View,SafeAreaView, Dimensions,TouchableOpacity,Scroll
 import FontAwesome from "react-native-vector-icons/FontAwesome"
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5"
 import MaterialIcons from "react-native-vector-icons/MaterialIcons"
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"
 import React from 'react'
 
 
 const ProfileScreen = () => {
+    const data = [
+        {
+            text:"Get premium",
+            backgroundColor:"#FF9C41",
+            icon:  <FontAwesome5 name='crown' size={20} color={'#FFF'}/>,
+            arrowcolor:'#FF9C41',
+            textcolor: '#FF9C41',
+            marginLeft:Dimensions.get('window').width-190,
+        },
+        {
+            
+        },
+        {
+            text:"Get premium",
+            backgroundColor:"#00D971",
+            icon:  <FontAwesome name='file-text-o' size={20} color={'#FFF'}/>,
+            arrowcolor:'#2D344B',
+            textcolor: '#FFF',
+            marginLeft:Dimensions.get('window').width-190,
+        },
+        {
+            text:"License agreement",
+            backgroundColor:"#00D971",
+            icon:  <FontAwesome name='file-text-o' size={20} color={'#FFF'}/>,
+            arrowcolor:'#2D344B',
+            textcolor: '#FFF',
+            marginLeft:Dimensions.get('window').width-230,
+        },
+        {
+            
+        },
+        {
+            text:"Rate us",
+            backgroundColor:"#FF2D55",
+            icon:  <FontAwesome5 name='drafting-compass' size={20} color={'#FFF'}/>,
+            arrowcolor:'#2D344B',
+            textcolor: '#FFF',
+            marginLeft:Dimensions.get('window').width-150,
+        },
+        {
+            text:"Send Feedback",
+            backgroundColor:"#FF2D55",
+            icon:  <MaterialCommunityIcons name='mailbox' size={20} color={'#FFF'}/>,
+            arrowcolor:'#2D344B',
+            textcolor: '#FFF',
+            marginLeft:Dimensions.get('window').width-200,
+        },
+    ]
   return (
    <SafeAreaView style={styles.containermain}>
             <View style={{ marginBottom:23}}>
@@ -26,67 +75,31 @@ const ProfileScreen = () => {
            
 
             <ScrollView>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',height:44}}>
-            </View>
-            </View>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
-                <View style={styles.iconbox}>
-                    <FontAwesome5 name='crown' size={20} color={'#FFF'}/>
+                {
+                   data.map((e,i) =>{
+                     return (
+                        <View key={i}>
+            <TouchableOpacity style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
+                <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
+                <View style={{  
+                height:28,
+                backgroundColor: e.backgroundColor,
+                width:28,
+                borderRadius: 8,
+                marginHorizontal: 16,
+                alignItems: 'center',
+                justifyContent: 'center',}}>
+                   {e.icon}
                 </View>
-              <Text style={{color:'#FF9C41'}}>Get premium</Text>
-              <MaterialIcons style={{marginLeft:Dimensions.get('window').width-190}} name='arrow-forward-ios' color='#FF9C41' size={20}/>
-            </View>
-            </View>
-
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',height:44}}>
-            </View>
-            </View>
-            
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
-                <View style={styles.iconbox}>
-                    <FontAwesome5 name='crown' size={20} color={'#FFF'}/>
-                </View>
-              <Text style={{color:'#FF9C41'}}>Get premium</Text>
-              <MaterialIcons style={{marginLeft:Dimensions.get('window').width-190}} name='arrow-forward-ios' color='#FF9C41' size={20}/>
-            </View>
-            </View>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
-                <View style={styles.iconbox}>
-                    <FontAwesome5 name='crown' size={20} color={'#FFF'}/>
-                </View>
-              <Text style={{color:'#FF9C41'}}>Get premium</Text>
-              <MaterialIcons style={{marginLeft:Dimensions.get('window').width-190}} name='arrow-forward-ios' color='#FF9C41' size={20}/>
-            </View>
-            </View>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',height:44}}>
-            </View>
-            </View>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
-                <View style={styles.iconbox}>
-                    <FontAwesome5 name='crown' size={20} color={'#FFF'}/>
-                </View>
-              <Text style={{color:'#FF9C41'}}>Get premium</Text>
-              <MaterialIcons style={{marginLeft:Dimensions.get('window').width-190}} name='arrow-forward-ios' color='#FF9C41' size={20}/>
-            </View>
-            </View>
-            <View style={{borderTopWidth:1, borderTopColor:'#21283F',borderBottomWidth:1,borderBottomColor:'#21283F'}}>
-            <View style={{flexDirection:'row', flexWrap:'nowrap',alignItems:'center',height:44}}>
-                <View style={styles.iconbox}>
-                    <FontAwesome5 name='crown' size={20} color={'#FFF'}/>
-                </View>
-              <Text style={{color:'#FF9C41'}}>Get premium</Text>
-              <MaterialIcons style={{marginLeft:Dimensions.get('window').width-190}} name='arrow-forward-ios' color='#FF9C41' size={20}/>
-            </View>
-            </View>
+              <Text style={{color: e.textcolor}}>{e.text}</Text>
+              <MaterialIcons style={{marginLeft:e.marginLeft}} name='arrow-forward-ios' color={e.arrowcolor} size={20}/>
+               </View>
+            </TouchableOpacity>  
+                        </View>
+                     )
+                   })
+                }
             </ScrollView>
-
    </SafeAreaView>
   )
 }
@@ -127,13 +140,4 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         marginTop:24,
     },
-    iconbox:{
-        height:28,
-        width:28,
-        backgroundColor:'#FF9C41',
-        borderRadius: 8,
-        marginHorizontal: 16,
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
 })

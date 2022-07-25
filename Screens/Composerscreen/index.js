@@ -7,7 +7,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const Composer = () => {
-  const [option,setOption] = useState(["Female","Rain","Cats"])
+  const [option,setOption] = useState(["Female","Rain","Cats","Train"])
   const data =[
     {
      title:"Child",
@@ -37,6 +37,18 @@ const Composer = () => {
          text: "Forest",
          icon: <FontAwsome5 name='tree' color="#FFF" size={30} />
        },
+       {
+        text: "Ocean",
+        icon: <MaterialIcons name='waves' color="#FFF" size={30} />
+      },
+      {
+        text: "Fire",
+        icon: <FontAwsome5 name='fire' color="#FFF" size={30} />
+      },
+      {
+        text: "Storm",
+        icon: <Ionicons name='thunderstorm' color="#FFF" size={30} />
+      },
       ] 
      },
      {
@@ -58,10 +70,33 @@ const Composer = () => {
       },
       ] 
      },
+     {
+      title:"Industrial",
+      discription:`Animal voices will improve your sleep`,
+      backgroundColor: "#FF2D55",
+      listOptions: [
+       {
+         text: "Train",
+         icon: <FontAwsome5 name='train' color="#FFF" size={30} />
+       },
+       {
+         text: "Aircraft",
+         icon: <FontAwsome5 name='plane' color="#FFF" size={30} />
+       },
+       {
+        text: "City",
+        icon: <FontAwsome5 name='city' color="#FFF" size={30} />
+      },
+      {
+        text: "Caffe",
+        icon: <FontAwsome5 name='coffee' color="#FFF" size={30} />
+      },
+      ] 
+     },
   ]
   return (
   <SafeAreaView style={styles.containermain}>
-    <ScrollView>
+    <ScrollView vertical={true}>
     <View style={{marginLeft:16}}>
             <View style={{ marginBottom:16}}>
                 <View style={{marginTop:44, marginBottom:36}}>
@@ -77,7 +112,7 @@ const Composer = () => {
             <View style={{marginBottom:14}}>
               <Text style={styles.detail}>{e.discription}</Text>
             </View>
-            <ScrollView>
+            <ScrollView horizontal={true}>
             <View  style={{flexWrap:'nowrap', flexDirection:'row'}}>
                 {e.listOptions.map((element,index) =>{
                   return (
@@ -85,6 +120,7 @@ const Composer = () => {
                     setOption({
                       ...option,
                     })}>
+
                     <View key={index} style={{marginRight:16}}>
                           <CardSound text={element.text} backgroundColor={option[i] === element.text ? e.backgroundColor: "#21283F"} icon={element.icon}/>
                     </View>
