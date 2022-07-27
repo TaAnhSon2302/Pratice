@@ -11,36 +11,43 @@ const AlbumSreen = () => {
             title: "Guitar Camp",
             image: require("../../assets/album1.png"),
             songnumber: "7 Songs ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Chill-hop",
             image: require("../../assets/album2.png"),
             songnumber: "7 Songs ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Pack name",
             image: require("../../assets/album3.png"),
             songnumber: "4 Hours ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Guitar Camp",
             image: require("../../assets/album4.png"),
             songnumber: "4 Hours ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Guitar Camp",
             image: require("../../assets/album4.png"),
             songnumber: "4 Hours ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Guitar Camp",
             image: require("../../assets/album4.png"),
             songnumber: "4 Hours ",
+            backgroundColor:"#090E18",
         },
         {
             title: "Guitar Camp",
             image: require("../../assets/album4.png"),
             songnumber: "4 Hours ",
+            backgroundColor:"#090E18",
         },
     ];
   return (
@@ -85,7 +92,7 @@ const AlbumSreen = () => {
                {dataMusic.map((element, index) => {
             return (
               <View key={index}>
-                <CardConten image={element.image} title={element.title} songnumber={element.songnumber} category={element.category}/>
+                <CardConten image={element.image} title={element.title} songnumber={element.songnumber} category={element.category} backgroundColor={element.backgroundColor}/>
               </View>
             );
           })}

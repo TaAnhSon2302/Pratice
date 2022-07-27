@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View,SafeAreaView,TouchableOpacity,ScrollView,Dimensions } from 'react-native'
 import React from 'react'
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons"
 import Entypo from "react-native-vector-icons/Entypo"
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import CardConten from '../../Components/CardConten'
+
 const AlbumDetail = () => {
     const data =[
         {
@@ -38,6 +40,20 @@ const AlbumDetail = () => {
            ]
         },
     ]
+    const feature =[
+        {
+            title: "Chill-hop",
+            image: require("../../assets/album5.png"),
+            songnumber: "7 Songs ",
+            backgroundColor:"#141927"
+        },
+        {
+            title: "Lullbaly",
+            image: require("../../assets/album6.png"),
+            songnumber: "7 Songs ",
+            backgroundColor:"#141927"
+        }
+    ]
   return (
     <SafeAreaView style={styles.maincontainer}>
         <View>
@@ -69,7 +85,7 @@ const AlbumDetail = () => {
                     <Text style={{fontWeight:'600',fontSize:17,lineHeight:22,color:"#FF9C41",marginLeft:5.8}}>Unfavorite</Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView>
+            <ScrollView vertical={true}>
             <View style={{marginHorizontal:16,marginBottom:16}}>
            <View>
                 <Text style={{color:'#FFFF',fontWeight:'700',fontSize:17,lineHeight:22}}>About this pack</Text>
@@ -91,9 +107,9 @@ const AlbumDetail = () => {
                                  <View style={{marginHorizontal:16}}>
                            <Text style={{fontWeight:'400',fontSize:13,lineHeight:18,color:'rgba(235, 235, 245, 0.6)'}}>{element.number}</Text>
                        </View>
-                       <View style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
+                       <TouchableOpacity style={{width:32,height:32,borderRadius:20,backgroundColor:'#141927',justifyContent:'center',alignItems:'center',marginLeft:8}}>
                            {element.icon}
-                       </View>
+                       </TouchableOpacity>
                        <View style={{marginLeft:16}}>
                        <Text style={{fontWeight:'400',fontSize:17,lineHeight:22,color:'#FFF'}}>{element.songName}</Text>
                       </View>
@@ -101,6 +117,24 @@ const AlbumDetail = () => {
                     )})
                 }
             </View>
+            <View>
+                <Text style={{fontWeight:'600',fontSize:17,marginHorizontal:16, color:'#FFF',marginBottom:2, marginTop:20}}>Feautre on</Text>
+            </View>
+            <View style ={{
+                   alignItems:'flex-start',
+                   justifyContent:'space-between',
+                   flexDirection:'row',
+                   flexWrap:'wrap',
+                   paddingHorizontal: 16,
+               }}>
+               {feature.map((element, index) => {
+            return (
+              <View key={index} style={{height:Dimensions.get('window').height}}>
+                <CardConten image={element.image} title={element.title} songnumber={element.songnumber} category={element.category} backgroundColor={element.backgroundColor}/>
+              </View>
+            );
+          })}
+               </View>
             </ScrollView>
                   </View>    
                 )

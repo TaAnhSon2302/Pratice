@@ -3,7 +3,7 @@ import React from 'react'
 import Entypo from 'react-native-vector-icons/Entypo'
 
 
-const CardConten = ({image,songnumber,title}) => {
+const CardConten = ({image,songnumber,title,backgroundColor}) => {
   return (
     <View>
       <View style={styles.top}>
@@ -12,7 +12,7 @@ const CardConten = ({image,songnumber,title}) => {
            <Entypo name="controller-play" size={20} color="#fff" />
            </View>   
       </View>
-      <View style={styles.bottom}>
+      <View style={{ backgroundColor:backgroundColor,width: 164,height: 50,}}>
           <Text style={{fontWeight:'400', fontSize:17,lineHeight:22,color:'#fff'}}>{title}</Text>
           <View style={{alignItems:'flex-start', justifyContent:'flex-start',flexDirection:'row',flexWrap:'nowrap'}}>
               <Text style={{fontSize:13,lineHeight:18,fontWeight:'400',color:'color: rgba(235, 235, 245, 0.6);'}}>{songnumber}</Text>
@@ -37,11 +37,6 @@ const styles = StyleSheet.create({
        width:(Dimensions.get('window').width - 16*2 - 15)/2,
        borderWidth:1,
        borderBottomColor: "#21283F",
-    },
-    bottom: {
-        backgroundColor: '#090E18',
-        width: 164,
-        height: 50,
     },
     icon:{
         position:'absolute',
